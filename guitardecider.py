@@ -1,6 +1,6 @@
-x=str(input("enter the name of the desired guitar : "))
-guitar_models = [
+import difflib
 
+guitar_models = [
     ("fender stratocaster", "Fender Stratocaster"),
     ("fender stratocaster standard", "Fender Stratocaster Standard"),
     ("fender stratocaster deluxe", "Fender Stratocaster Deluxe"),
@@ -13,8 +13,6 @@ guitar_models = [
     ("fender stratocaster eric clapton", "Fender Stratocaster Eric Clapton"),
     ("fender stratocaster david gilmour", "Fender Stratocaster David Gilmour"),
     ("fender stratocaster yngwie malmsteen", "Fender Stratocaster Yngwie Malmsteen"),
-
- 
     ("fender telecaster", "Fender Telecaster"),
     ("fender telecaster standard", "Fender Telecaster Standard"),
     ("fender telecaster deluxe", "Fender Telecaster Deluxe"),
@@ -24,14 +22,10 @@ guitar_models = [
     ("fender telecaster player", "Fender Telecaster Player"),
     ("fender telecaster jim root", "Fender Telecaster Jim Root"),
     ("fender telecaster george harrison rosewood", "Fender Telecaster George Harrison Rosewood"),
-
-
     ("fender jaguar", "Fender Jaguar"),
     ("fender jazzmaster", "Fender Jazzmaster"),
     ("fender mustang", "Fender Mustang"),
     ("fender duo-sonic", "Fender Duo-Sonic"),
-
-  
     ("gibson les paul standard", "Gibson Les Paul Standard"),
     ("gibson les paul classic", "Gibson Les Paul Classic"),
     ("gibson les paul traditional", "Gibson Les Paul Traditional"),
@@ -43,8 +37,6 @@ guitar_models = [
     ("gibson les paul slash", "Gibson Les Paul Slash"),
     ("gibson les paul joe perry", "Gibson Les Paul Joe Perry"),
     ("gibson les paul r9", "Gibson Les Paul R9"),
-
-   
     ("gibson sg standard", "Gibson SG Standard"),
     ("gibson sg special", "Gibson SG Special"),
     ("gibson sg junior", "Gibson SG Junior"),
@@ -52,21 +44,16 @@ guitar_models = [
     ("gibson sg custom", "Gibson SG Custom"),
     ("gibson sg angus young", "Gibson SG Angus Young"),
     ("gibson sg tony iommi", "Gibson SG Tony Iommi"),
-
-   
     ("gibson es-335", "Gibson ES-335"),
     ("gibson es-339", "Gibson ES-339"),
     ("gibson es-175", "Gibson ES-175"),
     ("gibson es-137", "Gibson ES-137"),
     ("gibson es-330", "Gibson ES-330"),
-
     ("gibson flying v", "Gibson Flying V"),
     ("gibson explorer", "Gibson Explorer"),
     ("gibson firebird", "Gibson Firebird"),
     ("gibson melody maker", "Gibson Melody Maker"),
     ("gibson l-5", "Gibson L-5"),
-
-   
     ("prs custom 24", "PRS Custom 24"),
     ("prs custom 22", "PRS Custom 22"),
     ("prs silver sky", "PRS Silver Sky"),
@@ -74,8 +61,6 @@ guitar_models = [
     ("prs santana", "PRS Santana"),
     ("prs se custom 24", "PRS SE Custom 24"),
     ("prs se paul’s guitar", "PRS SE Paul's Guitar"),
-
- 
     ("ibanez rg", "Ibanez RG"),
     ("ibanez jem", "Ibanez JEM"),
     ("ibanez s series", "Ibanez S Series"),
@@ -85,7 +70,6 @@ guitar_models = [
     ("ibanez artcore", "Ibanez Artcore"),
     ("ibanez prestige", "Ibanez Prestige"),
     ("ibanez gio", "Ibanez GIO"),
-
     ("esp eclipse", "ESP Eclipse"),
     ("esp horizon", "ESP Horizon"),
     ("esp viper", "ESP Viper"),
@@ -95,83 +79,60 @@ guitar_models = [
     ("esp ltd viper-1000", "ESP LTD Viper-1000"),
     ("esp kirk hammett kh-2", "ESP Kirk Hammett KH-2"),
     ("esp james hetfield snakebyte", "ESP James Hetfield Snakebyte"),
-
     ("jackson soloist", "Jackson Soloist"),
     ("jackson dinky", "Jackson Dinky"),
     ("jackson rhoads", "Jackson Rhoads"),
     ("jackson kelly", "Jackson Kelly"),
-
     ("gretsch white falcon", "Gretsch White Falcon"),
     ("gretsch duo jet", "Gretsch Duo Jet"),
     ("gretsch country gentleman", "Gretsch Country Gentleman"),
     ("gretsch electromatic", "Gretsch Electromatic"),
-
     ("rickenbacker 360", "Rickenbacker 360"),
     ("rickenbacker 330", "Rickenbacker 330"),
     ("rickenbacker 620", "Rickenbacker 620"),
     ("rickenbacker 4001", "Rickenbacker 4001"),
     ("rickenbacker 4003", "Rickenbacker 4003"),
-
-   
     ("yamaha revstar", "Yamaha Revstar"),
     ("yamaha pacifica", "Yamaha Pacifica"),
     ("yamaha sg2000", "Yamaha SG2000"),
     ("yamaha c40", "Yamaha C40"),
-
-    
     ("epiphone casino", "Epiphone Casino"),
     ("epiphone dot", "Epiphone Dot"),
     ("epiphone sheraton", "Epiphone Sheraton"),
     ("epiphone les paul standard", "Epiphone Les Paul Standard"),
     ("epiphone g-400", "Epiphone G-400"),
     ("epiphone es-339", "Epiphone ES-339"),
-
-
     ("schecter hellraiser", "Schecter Hellraiser"),
     ("schecter c-1", "Schecter C-1"),
     ("schecter omen 6", "Schecter Omen 6"),
     ("schecter blackjack", "Schecter Blackjack"),
     ("schecter avenger", "Schecter Avenger"),
-
-   
     ("martin d-28", "Martin D-28"),
     ("martin d-18", "Martin D-18"),
     ("martin 000-28", "Martin 000-28"),
     ("martin om-28", "Martin OM-28"),
     ("martin 000-15m", "Martin 000-15M"),
     ("martin d-45", "Martin D-45"),
-
     ("taylor 814ce", "Taylor 814ce"),
     ("taylor 214ce", "Taylor 214ce"),
     ("taylor gs mini", "Taylor GS Mini"),
     ("taylor baby", "Taylor Baby"),
     ("taylor 110e", "Taylor 110e"),
-
-    
     ("guild starfire", "Guild Starfire"),
     ("guild d-55", "Guild D-55"),
     ("guild f-512", "Guild F-512"),
-
-    
     ("seagull s6", "Seagull S6"),
     ("seagull entourage", "Seagull Entouraage"),
-
-   
     ("ovation celebrity", "Ovation Celebrity"),
     ("ovation elite", "Ovation Elite"),
-
-   
     ("takamine gd30", "Takamine GD30"),
     ("takamine p3dc", "Takamine P3DC"),
-
-   
     ("cordoba c5", "Cordoba C5"),
     ("cordoba c7", "Cordoba C7"),
     ("cordoba fusion 12", "Cordoba Fusion 12"),
-
-   
     ("fender precision bass", "Fender Precision Bass"),
     ("fender jazz bass", "Fender Jazz Bass"),
+    ("fender jazzmaster", "Fender Jazzmaster"),
     ("fender mustang bass", "Fender Mustang Bass"),
     ("gibson thunderbird", "Gibson Thunderbird"),
     ("music man stingray", "Music Man StingRay"),
@@ -182,3 +143,88 @@ guitar_models = [
     ("rickebacker 4003", "Rickenbacker 4003")
 ]
 
+guitar_info = {
+    "fender stratocaster": "Iconic double-cutaway guitar, bright tone, favored in rock, blues, and pop.",
+    "fender telecaster": "Famous for its twangy tone, great for country, rock, and blues.",
+    "fender jaguar": "Short scale, unique switching system, surf-rock classic.",
+    "fender jazzmaster": "Warm, mellow tone with wide pickups, popular in indie and alternative rock.",
+    "fender mustang": "Short scale, punchy sound, loved by punk and grunge players.",
+    "fender precision bass": "First-ever electric bass, punchy low end, used in nearly all genres.",
+    "fender jazz bass": "Slim neck, versatile tone, popular with funk, jazz, and rock bassists.",
+    "gibson les paul standard": "Thick, sustaining tone, cornerstone of classic rock.",
+    "gibson les paul custom": "Elegant, heavier build, rich sustain, used in metal and hard rock.",
+    "gibson sg standard": "Lighter body, aggressive tone, a favorite in hard rock and heavy metal.",
+    "gibson es-335": "Semi-hollow, warm and resonant, jazz and blues staple.",
+    "gibson flying v": "Radical design, sharp tone, favored by metal and hard rock players.",
+    "gibson explorer": "Angular body, powerful output, iconic in heavy metal.",
+    "gibson firebird": "Reverse body shape, bright cutting tone, used in blues rock.",
+    "gibson thunderbird": "Bold design, deep growl, popular in rock and metal bass lines.",
+    "prs custom 24": "Versatile high-end guitar with smooth playability, used across genres.",
+    "prs mccarty 594": "Vintage-inspired with modern reliability, warm and articulate.",
+    "prs silver sky": "John Mayer’s signature model, Strat-inspired with PRS refinement.",
+    "prs santana": "Thick sustain and warm midrange, designed for Carlos Santana’s sound.",
+    "ibanez rg": "Shredder’s favorite, thin neck, great for metal and fast playing.",
+    "ibanez jem": "Steve Vai’s signature, known for its monkey grip handle and hot pickups.",
+    "ibanez s series": "Lightweight, sleek body, versatile for metal and rock.",
+    "ibanez artcore": "Affordable hollow-body, warm jazz and blues tones.",
+    "ibanez sr": "Fast neck, modern tone, popular in metal and fusion bass.",
+    "esp eclipse": "Modern Les Paul-style, popular with metal players.",
+    "esp horizon": "Sleek superstrat, hot pickups, great for shred and metal.",
+    "esp kirk hammett kh-2": "Signature metal machine with EMG pickups.",
+    "esp james hetfield snakebyte": "Angular body, crushing metal rhythm tone.",
+    "jackson soloist": "Superstrat shred guitar, Floyd Rose tremolo, built for speed.",
+    "jackson rhoads": "V-shaped metal icon, Randy Rhoads’ signature model.",
+    "jackson dinky": "Compact shred-style guitar, fast neck, popular in metal.",
+    "jackson kelly": "Aggressive angular shape, crushing tone, metal classic.",
+    "gretsch white falcon": "Large, ornate hollow-body, bright twang, rockabilly favorite.",
+    "gretsch duo jet": "Chambered body, punchy tone, used by George Harrison.",
+    "gretsch country gentleman": "Classic hollow-body, warm resonance, favored by Chet Atkins.",
+    "rickenbacker 360": "Jangly tone, favored by The Byrds and The Beatles.",
+    "rickenbacker 330": "Classic semi-hollow, bright chiming sound.",
+    "rickenbacker 4001": "Legendary bass tone, used by Chris Squire and Geddy Lee.",
+    "rickenbacker 4003": "Modern version of the 4001, deep growl and punchy highs.",
+    "yamaha revstar": "Modern rock guitar with unique styling.",
+    "yamaha pacifica": "Affordable Strat-style, versatile beginner to pro use.",
+    "yamaha sg2000": "High-end, sustain-heavy, loved by Carlos Santana early in his career.",
+    "yamaha c40": "Popular beginner classical nylon-string guitar.",
+    "epiphone casino": "Hollow-body, Beatles’ favorite, bright and airy tone.",
+    "epiphone sheraton": "Semi-hollow, versatile, smooth jazz-to-rock sound.",
+    "epiphone les paul standard": "Affordable Les Paul with classic tone.",
+    "schecter hellraiser": "Heavy metal favorite, high-output pickups.",
+    "schecter c-1": "Modern superstrat, versatile rock and metal tones.",
+    "schecter omen 6": "Affordable entry-level metal guitar.",
+    "martin d-28": "Iconic dreadnought, booming bass, bluegrass standard.",
+    "martin d-18": "Warm mahogany tone, folk and country staple.",
+    "martin om-28": "Orchestra model, balanced sound, great for fingerpicking.",
+    "martin d-45": "Flagship dreadnought, ornate inlays, powerful sound.",
+    "taylor 814ce": "Modern acoustic-electric, balanced sound, great for live play.",
+    "taylor gs mini": "Travel-size with surprisingly big tone.",
+    "taylor 110e": "Affordable dreadnought, good for beginners and intermediate players.",
+    "guild d-55": "Rich dreadnought sound, strong projection.",
+    "guild starfire": "Semi-hollow, bright tone, classic rock feel.",
+    "seagull s6": "Canadian-made, affordable, bright tone.",
+    "ovation celebrity": "Roundback design, durable, stage-friendly.",
+    "takamine gd30": "Affordable dreadnought, solid performance.",
+    "cordoba c5": "Classical nylon-string, warm and resonant."
+}
+
+x = input("Enter the name of the desired guitar: ").lower()
+guitar_names = [model[0].lower() for model in guitar_models] + [model[1].lower() for model in guitar_models]
+matches = difflib.get_close_matches(x, guitar_names, n=5, cutoff=0.5)
+
+if matches:
+    print("Did you mean one of these?")
+    for i, match in enumerate(matches, 1):
+        print(f"{i}. {match}")
+    choice = input("Enter the number of your choice: ")
+    if choice.isdigit() and 1 <= int(choice) <= len(matches):
+        selected = matches[int(choice)-1].lower()
+        print(f"\n✅ You selected '{selected}'.")
+        if selected in guitar_info:
+            print(f"ℹ️ Info: {guitar_info[selected]}")
+        else:
+            print("ℹ️ Info: Description not available for this model.")
+    else:
+        print("❌ Invalid choice.")
+else:
+    print(f"❌ Sorry, '{x}' is not in the list of guitar models.")
