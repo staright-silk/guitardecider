@@ -1,1 +1,1 @@
-guitardecider is a python prject for people who wish to know more about a certain electric guitar. This is a comprehensive list in the making. It is still in progress and I hope to complete it by the end of this year. 
+guitardecider is a python project for people who wish to know more about a certain electric guitar. This is a comprehensive list in the making. It is still in progress and I hope to complete it by the end of this year. 
